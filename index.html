@@ -6,13 +6,14 @@
 <title>Nyx Chen · 陳伃萱 — Visual Creator Portfolio</title>
 <!-- 以下 OG/Twitter 標籤純粹是讓連結分享到 LINE / Email / LinkedIn 等平台時有預覽圖與說明文字，跟 SEO 索引無關 -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://shiuan1127.github.io/portfolio-with-works/">
 <meta property="og:title" content="Nyx Chen · 陳伃萱 — Visual Creator Portfolio">
 <meta property="og:description" content="品牌內容整合 × 網站更新 × 活動企劃 × 視覺輸出 — 在資源有限、節奏快速的環境中，把想法轉成可上線、可展示的成果。">
-<meta property="og:image" content="assets/design12.webp">
+<meta property="og:image" content="https://shiuan1127.github.io/portfolio-with-works/assets/design12.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nyx Chen · 陳伃萱 — Visual Creator Portfolio">
 <meta name="twitter:description" content="品牌內容整合 × 網站更新 × 活動企劃 × 視覺輸出">
-<meta name="twitter:image" content="assets/design12.webp">
+<meta name="twitter:image" content="https://shiuan1127.github.io/portfolio-with-works/assets/design12.webp">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,11 +39,13 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,253,248,.82);backdrop-
 .nav-logo{font-size:13px;font-weight:700;letter-spacing:.08em;display:flex;align-items:center;gap:10px;white-space:nowrap}.nav-dot{width:9px;height:9px;border-radius:50%;background:var(--ora);box-shadow:0 0 0 7px rgba(255,138,76,.14);animation:pulse-dot 2.4s infinite}@keyframes pulse-dot{50%{transform:scale(1.35)}}
 .nav-links{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.55);border:1px solid var(--border);padding:5px;border-radius:999px}.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;padding:8px 14px;border-radius:999px;transition:.22s}.nav-links a:hover{background:var(--ice-light);color:var(--ice-dark)}
 .nav-cta{background:var(--dark)!important;color:#fff!important;padding:8px 18px!important}.nav-cta:hover{background:var(--ora)!important;color:#fff!important}
+.nav-resume{border:1.5px solid var(--ora);color:var(--ora-dark)!important;font-weight:700;padding:8px 16px!important}.nav-resume:hover{background:var(--ora-light)!important;color:var(--ora-dark)!important}
 .lang-toggle{margin-left:2px;border:1.5px solid var(--ice-mid);background:#fff;color:var(--ice-dark);font-size:12px;font-weight:800;letter-spacing:.04em;padding:8px 15px;border-radius:999px;cursor:pointer;transition:.22s;font-family:inherit}.lang-toggle:hover{background:var(--ice-light)}
 
 /* Hero */
 .hero{max-width:var(--max);margin:0 auto;padding:76px 28px 42px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:42px;align-items:center}.hero-copy{min-width:0}.hero-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice-dark);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}.hero-eyebrow::before{content:'';width:34px;height:2px;background:linear-gradient(90deg,var(--ice-mid),var(--ora));border-radius:99px}.hero-name{font-size:clamp(72px,8vw,118px);font-weight:300;line-height:.86;letter-spacing:-.06em;margin-bottom:18px}.hero-name .accent{color:var(--ora);font-weight:600}.hero-sub{font-size:16px;color:var(--ice-dark);letter-spacing:.12em;margin-bottom:8px}.hero-zh{font-size:15px;color:var(--mid);margin-bottom:26px}.hero-desc{font-size:16px;line-height:1.9;color:var(--mid);max-width:540px;margin-bottom:30px}.hero-desc strong{color:var(--dark);font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:999px;padding:13px 24px;font-size:14px;font-weight:700;transition:.25s;border:1.5px solid transparent;cursor:pointer}.btn-primary{background:var(--ora);color:#fff;box-shadow:0 12px 25px rgba(255,138,76,.24)}.btn-primary:hover{transform:translateY(-3px);background:var(--ice-mid);color:var(--dark)}.btn-secondary{background:#fff;color:var(--ice-dark);border-color:var(--ice-mid)}.btn-secondary:hover{transform:translateY(-3px);background:var(--ice-light)}
-.hero-board{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}.portrait-card{grid-row:span 2;min-height:430px;border-radius:34px 34px 110px 34px;background:linear-gradient(145deg,var(--ice-light),#fff);border:2px solid var(--ice-mid);box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.portrait-card::after{content:'';position:absolute;width:230px;height:230px;border-radius:50%;background:rgba(255,138,76,.16);right:-70px;bottom:-50px}.avatar-big{position:relative;z-index:1;font-size:78px;font-weight:300;color:var(--ice-dark);letter-spacing:-.08em}.open-badge{position:relative;z-index:1;align-self:flex-start;background:var(--ora);color:#fff;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:7px}.open-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}@keyframes blink{50%{opacity:.25}}
+.hero-board{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.open-badge{display:inline-flex;align-items:center;gap:7px;background:var(--ora);color:#fff;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;vertical-align:middle;margin-left:8px}.open-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}@keyframes blink{50%{opacity:.25}}
 .hero-mini{background:rgba(255,255,255,.72);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--soft-shadow);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.hero-mini strong{font-size:34px;line-height:1;color:var(--ora);font-weight:600}.hero-mini span{font-size:13px;color:var(--mid)}.hero-mini.ice strong{color:var(--ice-dark)}.hero-tags{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.pill{font-size:12px;color:var(--ice-dark);background:var(--ice-light);border:1px solid var(--ice-mid);padding:7px 12px;border-radius:999px;font-weight:600}.stripe{height:5px;display:flex}.stripe span{flex:1}.stripe .ora{background:var(--ora)}.stripe .ice{background:var(--ice)}
 
 /* Sections */
@@ -116,7 +119,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,253,248,.82);backdrop-
 .cursor-glow{position:fixed;width:360px;height:360px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(143,239,255,.10),transparent 70%);transform:translate(-50%,-50%);z-index:9999}
 
 @media(max-width:980px){.hero{grid-template-columns:1fr}.hero-board{max-width:560px}.section-head{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.works-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.portfolio-layout{grid-template-columns:1fr}.project-sidebar{position:static}.asset-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:680px){.page,.nav-inner,.hero,footer{padding-left:20px;padding-right:20px}.nav-inner{align-items:flex-start;flex-direction:column}.nav-links{width:100%;overflow-x:auto;justify-content:flex-start}.hero{padding-top:44px}.hero-name{font-size:64px}.hero-board{grid-template-columns:1fr}.portrait-card{min-height:300px}.hero-tags{justify-content:flex-start}.section{padding:54px 0}.skills-grid{grid-template-columns:1fr}.work-card{grid-template-columns:1fr}.work-card .work-cover{height:190px}.work-cover{height:240px}.cta-banner{margin-left:20px;margin-right:20px;padding:28px;flex-direction:column;align-items:flex-start}.c-big{font-size:30px}.modal-overlay{padding:10px}.modal-box{border-radius:22px;max-height:94vh}.modal-header,.modal-body{padding:20px}.modal-title{font-size:23px}.catalog-frame{height:420px}.cursor-glow{display:none}}
+@media(max-width:680px){.page,.nav-inner,.hero,footer{padding-left:20px;padding-right:20px}.nav-inner{align-items:flex-start;flex-direction:column}.nav-links{width:100%;overflow-x:auto;justify-content:flex-start}.hero{padding-top:44px}.hero-name{font-size:64px}.hero-board{grid-template-columns:1fr}.hero-tags{justify-content:flex-start}.section{padding:54px 0}.skills-grid{grid-template-columns:1fr}.work-card{grid-template-columns:1fr}.work-card .work-cover{height:190px}.work-cover{height:240px}.cta-banner{margin-left:20px;margin-right:20px;padding:28px;flex-direction:column;align-items:flex-start}.c-big{font-size:30px}.modal-overlay{padding:10px}.modal-box{border-radius:22px;max-height:94vh}.modal-header,.modal-body{padding:20px}.modal-title{font-size:23px}.catalog-frame{height:420px}.cursor-glow{display:none}}
 
 
 /* ===== Refinement: honest content + card-like desktop layout ===== */
@@ -788,6 +791,7 @@ body{
       <a href="#portfolio" data-en="Categories">分類瀏覽</a>
       <a href="#about" data-en="About">關於</a>
       <a href="#skills" data-en="Skills">技能</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener" class="nav-resume" data-en="Resume ↓">履歷 ↓</a>
       <a href="mailto:dakotaylor1213@gmail.com" class="nav-cta" data-en="Contact +">聯絡我 ＋</a>
       <button type="button" id="lang-toggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
     </div>
@@ -798,7 +802,7 @@ body{
   <div class="hero-copy">
     <div class="hero-eyebrow reveal-l">Creative Content & Brand Operations</div>
     <h1 class="hero-name reveal">Nyx<br><span class="accent">Chen.</span></h1>
-    <div class="hero-sub reveal delay-1">陳伃萱</div>
+    <div class="hero-sub reveal delay-1">陳伃萱 <span class="open-badge">Open to Work</span></div>
     <div class="hero-zh reveal delay-1" data-en="Brand Content Integration × Website Updates × Event Planning × Visual Production">品牌內容整合 × 網站更新 × 活動企劃 × 視覺輸出</div>
     <p class="hero-desc reveal delay-2" data-en="I specialize in integrating website content, visual design, and event execution in fast-paced, resource-limited environments — making brand messages easier to see. From website updates and SEO/GEO content collaboration to photography, catalogs, and event planning, I keep turning ideas into results that can go live, be shown, and be measured. <strong>For resource-limited teams, I can take on work that would normally need multiple roles, while continuously expanding my own skill set.</strong>">我擅長在資源有限、節奏快速的環境中，整合網站內容、視覺設計與活動執行，讓品牌訊息更清楚地被看見。從網站更新、SEO / GEO 內容協作到攝影、型錄與活動企劃，我持續把想法轉成可上線、可展示，也能被看見成效的成果。<strong>對資源有限的團隊來說，我能同時扛下原本需要多個角色分工的工作，並持續擴充自己的能力範圍。</strong></p>
     <div class="hero-actions reveal delay-3">
@@ -807,11 +811,9 @@ body{
     </div>
   </div>
   <div class="hero-board reveal-r delay-2">
-    <div class="portrait-card">
-      <div class="avatar-big">NC</div>
-      <div class="open-badge">Open to Work</div>
-    </div>
+    <div class="hero-mini" data-en="<strong>Multi-Skilled</strong><span>Spans websites, visuals, content, events, and e-commerce — one person covering multiple roles, flexibly switching based on what each project needs.</span>"><strong>全能</strong><span>橫跨網站、視覺、內容、活動與電商，一人身兼多重角色，能依專案需求靈活切換不同工作內容。</span></div>
     <div class="hero-mini" data-en="<strong>Independent</strong><span>Five years working in high-autonomy, lean-team environments — able to set my own pace and independently complete website, visual, and content work.</span>"><strong>獨立</strong><span>五年來在高自主、少人力的環境中，能自行安排節奏，獨立完成網站、視覺與內容相關工作。</span></div>
+    <div class="hero-mini ice" data-en="<strong>AI</strong><span>Comfortable using AI tools like Claude to help with content production, website development, and workflow optimization — boosting output efficiency and the scope of what I can take on.</span>"><strong>AI</strong><span>熟悉運用 Claude 等 AI 工具協作處理內容產出、網站開發與流程優化，有效提升執行效率與涉略範圍。</span></div>
     <div class="hero-mini ice" data-en="<strong>Integration</strong><span>Skilled at turning scattered requirements into clear content and visual plans, staying steady under pressure while coordinating across teams.</span>"><strong>整合</strong><span>擅長把零散需求整理成清楚的內容與視覺方案，面對壓力時仍能穩定推進並串起跨部門合作。</span></div>
     <div class="hero-tags"><span class="pill" data-en="Self-Driven">獨立自主</span><span class="pill" data-en="Content Integration">內容整合</span><span class="pill" data-en="Reliable Execution">穩定執行</span><span class="pill" data-en="Creative Expression">創意表達</span></div>
   </div>
@@ -958,7 +960,7 @@ body{
   <section class="section" id="works">
     <div class="section-head">
       <div><div class="sec-eyebrow reveal">Selected Works</div></div>
-      <div><h2 class="sec-title reveal delay-1" data-en="<strong>Selected Works</strong> — click to explore"><strong>精選作品</strong>，點開就能看內容</h2><p class="sec-note reveal delay-2" data-en="Current samples focus on directly demonstrating skills: catalogs and collateral, video and photography, and event visual output. Click to browse the format directly — with room to swap in real client case studies later.">目前作品以能直接展示能力的內容為主：型錄與文宣、影片與攝影、以及活動視覺輸出。點開後可直接瀏覽作品形式，也保留之後替換成真實案例素材的彈性。</p></div>
+      <div><h2 class="sec-title reveal delay-1" data-en="<strong>Selected Works</strong> — click to explore"><strong>精選作品</strong>，點開就能看內容</h2><p class="sec-note reveal delay-2" data-en="These catalogs, photography, design work, and videos are real work produced and used on the job — click to browse each format directly.">這裡的型錄、攝影、設計與影片，都是實際產出並應用過的工作成果，點開即可直接瀏覽。</p></div>
     </div>
     <div class="works-shell reveal delay-2">
       <div class="works-grid">
@@ -1021,7 +1023,7 @@ body{
         <div class="case-flow">
           <article class="case-step"><div class="case-step-label" data-en="Problem">問題</div><div class="case-step-text" data-en="With limited resources and manpower, how to create a memorable 5th-anniversary café in a 3-day event that drives on-site spending, while also spreading buzz across social platforms.">在有限資源與人力下，如何在 3 天活動內做出讓粉絲有記憶點、能帶動現場消費的五周年生咖，同時把聲量擴散到社群平台。</div></article>
           <div class="case-arrow">→</div>
-          <article class="case-step"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="From the initial concept, venue scouting and negotiation, menu discussions with the shop, merch design, and social content planning, to on-site setup and hosting — I handled almost every role myself: organizer, coordinator, designer, and social marketer.">從發起構想、物色與洽談場地、與店家討論菜單、周邊設計、社群內容規劃，到現場場佈與接待，主揪、統籌、設計、社群行銷等角色幾乎都由我一人全權處理。</div></article>
+          <article class="case-step"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="From the initial concept, venue scouting and negotiation, menu discussions with the shop, merch design, and social content planning, to on-site setup and hosting — I handled almost every role myself: organizer, coordinator, designer, and social marketer. I visited 4–5 candidate venues in person before choosing this one, weighing atmosphere, staff friendliness, layout, and transit access; since the shop wasn't familiar with this kind of event, I spent real time explaining and proving this was a serious plan, not just talk. I'd originally planned a stairwell &quot;time tunnel&quot; visual journey tracing the members' growth from childhood to now, but had to scale it back given the prep timeline — even so, some fans still noticed the touch.">從發起構想、物色與洽談場地、與店家討論菜單、周邊設計、社群內容規劃，到現場場佈與接待，主揪、統籌、設計、社群行銷等角色幾乎都由我一人全權處理。場地是我實際走訪 4-5 家候補地點後選定的——氛圍、店員友善度、動線與交通都是考量點；由於店家原本不熟悉這類活動，我也花了不少時間溝通、證明這是認真籌辦而非隨口說說。原本規劃在樓梯間做一個呈現成員成長歷程的「時光隧道」視覺動線，但受限於籌備時間最終忍痛簡化，即便如此，仍有粉絲注意到這個小巧思。</div></article>
           <div class="case-arrow">→</div>
           <article class="case-step case-step-result"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="Over 3 days: <strong>200+ visits</strong>, <strong>60K+</strong> total social impressions, and <strong>over NT$170K</strong> in total sales.">3 天累積 <strong>200+ 人次</strong>到店、社群總曝光<strong>超過 6 萬</strong>，並帶動<strong>超過 17 萬元</strong>的整體銷售額。</div></article>
         </div>
