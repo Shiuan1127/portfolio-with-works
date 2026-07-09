@@ -969,7 +969,7 @@ body{
       <a href="#portfolio" data-en="Categories">分類瀏覽</a>
       <a href="#about" data-en="About">關於</a>
       <a href="#skills" data-en="Skills">技能</a>
-      <a href="assets/resume.pdf" target="_blank" rel="noopener" class="nav-resume" data-en="Resume ↓">履歷 ↓</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener" class="nav-resume" id="resume-link" data-en="Resume ↓" data-href-en="assets/resume-en.pdf" data-href-zh="assets/resume.pdf">履歷 ↓</a>
       <a href="mailto:dakotaylor1213@gmail.com" class="nav-cta" data-en="Contact +">聯絡我 ＋</a>
       <button type="button" id="lang-toggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
     </div>
@@ -1269,7 +1269,7 @@ body{
 </main>
 
 <section class="cta-banner">
-  <div class="reveal-l"><div class="c-small">Let's Create Together</div><p class="c-bridge" data-en="If these stories nod you along — you already know what one person can carry.">如果這些故事讓你點頭——你已經知道一個人能扛下多少事。</p><div class="c-big" data-en="Let's work together <br><strong>and make something fun.</strong>">一起合作，<br><strong>做點有趣的。</strong></div></div>
+  <div class="reveal-l"><div class="c-small">Let's Create Together</div><p class="c-bridge" data-en="If these stories nod you along —">如果這些故事讓你點頭——</p><div class="c-big" data-en="Let's work together <br><strong>and spark something fun.</strong>">一起合作，<br><strong>讓我們碰撞出有趣的事吧。</strong></div></div>
   <div class="cta-btns reveal-r"><a href="mailto:dakotaylor1213@gmail.com" class="btn btn-primary" data-en="Email Me ↗">寄信給我 ↗</a></div>
 </section>
 <footer><div class="footer-logo">NYX CHEN · 陳伃萱</div><div data-en="© 2026 Nyx Chen · All rights reserved">© 2026 陳伃萱 · All rights reserved</div></footer>
@@ -1726,6 +1726,8 @@ function applyLang(lang){
   });
   const btn = document.getElementById('lang-toggle');
   if(btn) btn.textContent = lang === 'en' ? '中文' : 'EN';
+  const resumeLink = document.getElementById('resume-link');
+  if(resumeLink) resumeLink.href = lang === 'en' ? resumeLink.dataset.hrefEn : resumeLink.dataset.hrefZh;
   const modal = document.getElementById('portfolio-modal');
   if(modal && modal.classList.contains('open') && currentCatalogKey){
     openPortfolio(currentCatalogKey);
