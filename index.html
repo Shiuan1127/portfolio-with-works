@@ -43,7 +43,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,253,248,.82);backdrop-
 .lang-toggle{margin-left:2px;border:1.5px solid var(--ice-mid);background:#fff;color:var(--ice-dark);font-size:12px;font-weight:800;letter-spacing:.04em;padding:8px 15px;border-radius:999px;cursor:pointer;transition:.22s;font-family:inherit}.lang-toggle:hover{background:var(--ice-light)}
 
 /* Hero */
-.hero{max-width:var(--max);margin:0 auto;padding:76px 28px 42px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:42px;align-items:center}.hero-copy{min-width:0}.hero-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice-dark);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}.hero-eyebrow::before{content:'';width:34px;height:2px;background:linear-gradient(90deg,var(--ice-mid),var(--ora));border-radius:99px}.hero-name{font-size:clamp(72px,8vw,118px);font-weight:300;line-height:.86;letter-spacing:-.06em;margin-bottom:18px}.hero-name .accent{color:var(--ora);font-weight:600}.hero-sub{font-size:16px;color:var(--ice-dark);letter-spacing:.12em;margin-bottom:8px}.hero-zh{font-size:15px;color:var(--mid);margin-bottom:26px}.hero-desc{font-size:16px;line-height:1.9;color:var(--mid);max-width:540px;margin-bottom:30px}.hero-desc strong{color:var(--dark);font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:999px;padding:13px 24px;font-size:14px;font-weight:700;transition:.25s;border:1.5px solid transparent;cursor:pointer}.btn-primary{background:var(--ora);color:#fff;box-shadow:0 12px 25px rgba(255,138,76,.24)}.btn-primary:hover{transform:translateY(-3px);background:var(--ice-mid);color:var(--dark)}.btn-secondary{background:#fff;color:var(--ice-dark);border-color:var(--ice-mid)}.btn-secondary:hover{transform:translateY(-3px);background:var(--ice-light)}
+.hero{max-width:var(--max);margin:0 auto;padding:76px 28px 42px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:42px;align-items:center}.hero-copy{min-width:0}.hero-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice-dark);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}.hero-eyebrow::before{content:'';width:34px;height:2px;background:linear-gradient(90deg,var(--ice-mid),var(--ora));border-radius:99px}.hero-name{font-size:clamp(72px,8vw,118px);font-weight:300;line-height:.86;letter-spacing:-.06em;margin-bottom:18px}.hero-name .accent{color:var(--ora);font-weight:600}.hero-sub{font-size:16px;color:var(--ice-dark);letter-spacing:.12em;margin-bottom:8px}.hero-zh{font-size:15px;color:var(--mid);margin-bottom:26px}.hero-full{grid-column:1/-1}.hero-desc{font-size:16px;line-height:1.9;color:var(--mid);max-width:540px;margin-bottom:30px}.hero-desc strong{color:var(--dark);font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:999px;padding:13px 24px;font-size:14px;font-weight:700;transition:.25s;border:1.5px solid transparent;cursor:pointer}.btn-primary{background:var(--ora);color:#fff;box-shadow:0 12px 25px rgba(255,138,76,.24)}.btn-primary:hover{transform:translateY(-3px);background:var(--ice-mid);color:var(--dark)}.btn-secondary{background:#fff;color:var(--ice-dark);border-color:var(--ice-mid)}.btn-secondary:hover{transform:translateY(-3px);background:var(--ice-light)}
 .hero-board{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .open-badge{display:inline-flex;align-items:center;gap:7px;background:var(--ora);color:#fff;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;vertical-align:middle;margin-left:8px}.open-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}@keyframes blink{50%{opacity:.25}}
 .hero-mini{background:rgba(255,255,255,.72);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--soft-shadow);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.hero-mini strong{font-size:34px;line-height:1;color:var(--ora);font-weight:600}.hero-mini span{font-size:13px;color:var(--mid)}.hero-mini.ice strong{color:var(--ice-dark)}.hero-tags{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.pill{font-size:12px;color:var(--ice-dark);background:var(--ice-light);border:1px solid var(--ice-mid);padding:7px 12px;border-radius:999px;font-weight:600}.stripe{height:5px;display:flex}.stripe span{flex:1}.stripe .ora{background:var(--ora)}.stripe .ice{background:var(--ice)}
@@ -927,6 +927,30 @@ body{
 .case-status-badge{position:relative;z-index:1;display:inline-flex;margin-top:16px;padding:9px 18px;border-radius:999px;font-size:12.5px;font-weight:800;box-shadow:0 6px 14px rgba(42,37,32,.08)}
 .case-study.theme-ora .case-status-badge{background:#fff;color:var(--ora-dark);border:1.5px dashed var(--ora)}
 
+.case-site-link{position:relative;z-index:1;display:inline-flex;align-items:center;margin-top:16px;padding:10px 20px;border-radius:999px;font-size:12.5px;font-weight:800;text-decoration:none;box-shadow:0 8px 16px rgba(42,37,32,.1);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.case-site-link:hover{transform:translateY(-2px) scale(1.03)}
+.case-study.theme-leaf .case-site-link{background:var(--leaf);color:#fff}
+.case-study.theme-spark .case-site-link{background:var(--spark);color:#fff}
+.case-study.theme-ora .case-site-link{background:var(--ora);color:#fff}
+
+.case-quote{position:relative;z-index:1;margin:14px 0 2px;padding:18px 22px 16px 26px;border-radius:6px 20px 20px 20px;font-size:13.5px;line-height:1.85;background:#fff;color:var(--mid);border-left:4px solid transparent;box-shadow:0 8px 20px rgba(42,37,32,.06)}
+.case-quote::before{content:'"';position:absolute;left:14px;top:-8px;font-size:44px;font-weight:800;font-family:Georgia,serif;line-height:1;opacity:.5}
+.case-quote strong{font-weight:800}
+.case-quote span{display:block;margin-top:10px;font-size:11.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--mid);opacity:.75}
+.case-quote span a{text-decoration:underline;text-underline-offset:2px}
+.case-study.theme-spark .case-quote{border-left-color:var(--spark)}
+.case-study.theme-spark .case-quote::before{color:var(--spark)}
+.case-study.theme-spark .case-quote strong{color:var(--spark-dark)}
+.case-study.theme-spark .case-quote span a{color:var(--spark-dark)}
+.case-study.theme-leaf .case-quote{border-left-color:var(--leaf)}
+.case-study.theme-leaf .case-quote::before{color:var(--leaf)}
+.case-study.theme-leaf .case-quote strong{color:var(--leaf-dark)}
+.case-study.theme-leaf .case-quote span a{color:var(--leaf-dark)}
+.case-study.theme-ora .case-quote{border-left-color:var(--ora)}
+.case-study.theme-ora .case-quote::before{color:var(--ora)}
+.case-study.theme-ora .case-quote strong{color:var(--ora-dark)}
+.case-study.theme-ora .case-quote span a{color:var(--ora-dark)}
+
 @media(max-width:680px){
   .case-study::after{font-size:120px}
   .mini-sticker{width:30px;height:30px;font-size:14px;top:-12px;right:-8px}
@@ -958,7 +982,7 @@ body{
     <h1 class="hero-name reveal">Nyx<br><span class="accent">Chen.</span></h1>
     <div class="hero-sub reveal delay-1">陳伃萱 <span class="open-badge">Open to Work</span></div>
     <div class="hero-zh reveal delay-1" data-en="Brand Content Integration × Website Updates × Event Planning × Visual Production">品牌內容整合 × 網站更新 × 活動企劃 × 視覺輸出</div>
-    <p class="hero-desc reveal delay-2" data-en="Most people only do content, or only visuals, or only execution — I put all three in one person. <strong>In fast-paced, resource-limited environments, I run the full path myself:</strong> website updates, SEO/GEO content collaboration, visual production, and event planning — so brand messages aren't just good-looking, they get seen and measured. You don't need to hire two more people. I'm already the team.">多數人只做內容、只做視覺，或只懂執行——我把三者放進同一個人身上。<strong>在資源有限、節奏快速的環境中，我獨立扛下從網站更新、SEO / GEO 內容協作、視覺產出到活動企劃的完整路徑</strong>，讓品牌訊息不只好看，還能被看見、被衡量。你不需要多請兩個人，我一個人就是那個團隊。</p>
+    <p class="hero-desc reveal delay-2" data-en="Most people only do content, or only visuals, or only execution — I put all three in one person. When resources are limited, I can carry the whole path myself: website updates, SEO/GEO content, visuals, and event planning. When there's a team, I know how to divide the work and connect everyone's ideas so the result is better than any one person could make alone. <strong>Solo or with a team, I know how to get it done.</strong>">多數人只做內容、只做視覺，或只懂執行——我把三者放進同一個人身上。資源有限時，我能一個人扛下從網站更新、SEO / GEO 內容協作到視覺產出與活動企劃的完整路徑；有團隊的時候，我也知道怎麼分工、怎麼把彼此的想法串起來，讓結果比一個人做更好。<strong>不管是一個人還是一群人，我都知道怎麼把事情做成。</strong></p>
     <div class="hero-actions reveal delay-3">
       <a href="#works" class="btn btn-primary" data-en="View Selected Works →">查看精選作品 →</a>
       <button class="btn btn-secondary" onclick="openPortfolio('video')" data-en="Play Video Reel ✦">播放影片作品 ✦</button>
@@ -1078,8 +1102,8 @@ body{
               <div class="card-art"><div class="card-symbol">🎪</div><div class="card-spell"><strong data-en="Turning on-site execution, theme planning, and fan energy into event momentum.">把現場執行、主題企劃與粉絲熱度整合成活動動能。</strong><small>Campaign</small></div></div>
               <div class="card-title" data-en="Event Planning × On-Site Execution">活動企劃 × 現場執行</div>
               <div class="card-text" data-en="From theme concept and merch planning to menu ideation, RSVP tracking, social posting, venue setup, and space planning — able to tie the experience and sales flow together.">從主題設定、周邊規劃、飲品初步發想到表單統計、社群發文、場佈與空間規劃，能把體驗與銷售節奏串起來。</div>
-              <div class="card-tags"><span data-en="Solo Organizer">獨立主揪</span><span data-en="200+ Attendees">200+ 參與</span><span data-en="NT$170K+ Sales">17萬+ 銷售</span></div>
-              <div class="card-effect" data-en="<strong>Card effect:</strong> A 3-day event drew 200+ attendees, generated over 60K total social impressions, and brought in more than NT$170K in total sales."><strong>卡牌效果：</strong>3 天活動創造 200+ 人次參與、社群平台總曝光超過 6 萬，並帶來超過 17 萬的總銷售額。</div>
+              <div class="card-tags"><span data-en="Solo Organizer">獨立主揪</span><span data-en="250+ Attendees">250+ 參與</span><span data-en="NT$170K+ Sales">17萬+ 銷售</span></div>
+              <div class="card-effect" data-en="<strong>Card effect:</strong> A 3-day event drew 250+ attendees, generated over 60K total social impressions, and brought in more than NT$170K in total sales."><strong>卡牌效果：</strong>3 天活動創造 250+ 人次參與、社群平台總曝光超過 6 萬，並帶來超過 17 萬的總銷售額。</div>
               <div class="card-action"><span data-en="Click to see the full story">點擊查看成果脈絡</span><span class="arrow">→</span></div>
             </div>
             <div class="card-footerline"></div>
@@ -1180,14 +1204,15 @@ body{
           <div class="case-arrow">→</div>
           <article class="case-step" data-step="2"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="From the initial concept, venue scouting and negotiation, menu discussions with the shop, merch design, and social content planning, to on-site setup and hosting — I handled almost every role myself: organizer, coordinator, designer, and social marketer. I visited 4–5 candidate venues in person before choosing this one, weighing atmosphere, staff friendliness, layout, and transit access; since the shop wasn't familiar with this kind of event, I spent real time explaining and proving this was a serious plan, not just talk.">從發起構想、物色與洽談場地、與店家討論菜單、周邊設計、社群內容規劃，到現場場佈與接待，主揪、統籌、設計、社群行銷等角色幾乎都由我一人全權處理。場地是我實際走訪 4-5 家候補地點後選定的——氛圍、店員友善度、動線與交通都是考量點；由於店家原本不熟悉這類活動，我也花了不少時間溝通、證明這是認真籌辦而非隨口說說。</div></article>
           <div class="case-arrow">→</div>
-          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="Over 3 days: <strong>200+ visits</strong>, <strong>60K+</strong> total social impressions, and <strong>over NT$170K</strong> in total sales.">3 天累積 <strong>200+ 人次</strong>到店、社群總曝光<strong>超過 6 萬</strong>，並帶動<strong>超過 17 萬元</strong>的整體銷售額。</div></article>
+          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="Over 3 days: <strong>250+ visits</strong>, <strong>60K+</strong> total social impressions, and <strong>over NT$170K</strong> in total sales.">3 天累積 <strong>250+ 人次</strong>到店、社群總曝光<strong>超過 6 萬</strong>，並帶動<strong>超過 17 萬元</strong>的整體銷售額。</div></article>
         </div>
         <div class="case-insight" data-en="<strong>Thought one step further:</strong> I'd originally planned a stairwell &quot;time tunnel&quot; visual journey tracing the members' growth from childhood to now — I had to scale it back given the prep timeline, but some fans still noticed the touch. That's my habit: not just finishing the task, but looking for a chance to leave something people remember."><strong>多想一步：</strong>原本規劃在樓梯間做一個呈現成員成長歷程的「時光隧道」視覺動線，雖然受限於籌備時間最終忍痛簡化，仍有粉絲注意到這個小巧思——這是我做事的習慣：不只是把任務完成，還會找機會留下讓人記得的細節。</div>
+        <div class="case-quote" data-en="After the event, the venue posted a rare, lengthy thank-you: the drinks and anniversary set alone went through 3 rounds of testing over two-plus months before launch; every detail from merch, gachapon, and poster design to crowd flow was noticed. In their own words: &#8220;we genuinely admire how much care they put into it.&#8221;<span>— EQUAL CAFE &amp; B, the partner venue <a href='https://www.instagram.com/p/DRMHNowjw6z/' target='_blank' rel='noopener'>View original post ↗</a></span>">活動結束後，合作店家在 Instagram 貼文裡罕見地寫了一大段感謝——提到光是飲品跟週年套餐就來回試做調整了三次、耗時兩個多月才定案，扭蛋、海報設計、應援品到動線管控每個細節都被記住，還用「<strong>真心佩服他們的用心</strong>」形容這次合作。<span>— 合作店家 EQUAL CAFE &amp; B　<a href="https://www.instagram.com/p/DRMHNowjw6z/" target="_blank" rel="noopener" data-en="View original post ↗">查看原文貼文 ↗</a></span></div>
         <div class="case-results">
           <article class="case-result-card">
             <div class="case-result-label" data-en="Event Turnout &amp; Reach">活動參與與曝光</div>
-            <div class="case-result-number">200+</div>
-            <div class="case-result-detail" data-en="The 3-day event drew <strong>200+ attendees</strong> with <strong>60K+</strong> total social impressions — clear proof of on-site mobilization and reach.">3 天活動累積 <strong>200+ 人次參與</strong>，社群平台總曝光量 <strong>超過 6 萬</strong>，具備明確的現場動員與擴散效果。</div>
+            <div class="case-result-number">250+</div>
+            <div class="case-result-detail" data-en="The 3-day event drew <strong>250+ attendees</strong> with <strong>60K+</strong> total social impressions — clear proof of on-site mobilization and reach.">3 天活動累積 <strong>250+ 人次參與</strong>，社群平台總曝光量 <strong>超過 6 萬</strong>，具備明確的現場動員與擴散效果。</div>
             <div class="case-result-help" data-en="aespa 5th Anniversary Café Event">aespa 五周年生咖活動</div>
           </article>
           <article class="case-result-card">
@@ -1204,11 +1229,12 @@ body{
         <div class="case-flow">
           <article class="case-step" data-step="1"><div class="case-step-label" data-en="Problem">問題</div><div class="case-step-text" data-en="Over the past 3 months, site impressions reached <strong>117K</strong>, up 17% year-over-year (from 100K); but clicks over the same period were <strong>5,826</strong>, down about 11.6% year-over-year (from 6,591) — meaning visibility improved, but content still needed work to convert views into clicks.">近三個月網站曝光為 <strong>11.7 萬</strong>，較去年同期(10 萬)成長 17%；但同期點擊數為 <strong>5,826</strong>，較去年同期(6,591)下滑約 11.6%，代表可見度提升，但內容吸引點擊的效果仍待加強。</div></article>
           <div class="case-arrow">→</div>
-          <article class="case-step" data-step="2"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="Adjusted layout presentation, content structure, and chart placement, while continuously monitoring impression, click, and ranking trends via Google Search Console.">針對版面呈現、內容結構與圖表配置進行調整優化，並持續透過 Google Search Console 觀察曝光、點擊與排名的變化趨勢。</div></article>
+          <article class="case-step" data-step="2"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="Keyword strategy was decided by the agency and management — not something I could control. So I focused on what I actually could: implementing AI-recommended improvements, cutting the site's LCP load time, rewriting article content to be more engaging, and continuously monitoring impression, click, and ranking trends via Google Search Console to keep iterating on the parts within my control.">關鍵字策略是廣告代理商與主管決定的範圍，不是我能左右的部分；我把力氣放在自己能實際掌控的地方——導入 AI 建議的優化項目、縮短網站 LCP 載入時間、把文章內容改寫得更生動有吸引力，並持續透過 Google Search Console 觀察曝光、點擊與排名的變化趨勢，讓自己能控制的部分不斷迭代優化。</div></article>
           <div class="case-arrow">→</div>
           <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="After recent optimization (comparing 4/1–4/30 to 5/17–6/17), site clicks recovered <strong>16.5%</strong> and impressions grew <strong>10.1%</strong> — an early positive signal. Since optimization just started, there isn't yet enough conversion/inquiry data, so the focus for now is on impression and click trends.">近期優化後(4/1–4/30 → 5/17–6/17 區間比較)，網站點擊回升 <strong>16.5%</strong>、曝光成長 <strong>10.1%</strong>，出現正向轉折訊號；由於優化才剛起步，尚未有足夠的轉換/諮詢數據，目前主要觀察曝光與點擊的變化趨勢。</div></article>
         </div>
         <div class="case-insight" data-en="<strong>Thought one step further:</strong> most people close the file once the optimization ships. I turned data-watching into an ongoing habit — tracking impressions, clicks, and rankings through Google Search Console on a regular cycle, which is exactly how this recent upward signal got caught early instead of being missed."><strong>多想一步：</strong>多數人優化上線後就結案，我把數據觀察變成持續的習慣——定期透過 Google Search Console 追蹤曝光、點擊與排名的變化，這次的正向轉折訊號才沒有被錯過。</div>
+        <a class="case-site-link" href="https://www.dersheng.com.tw/zh-TW/" target="_blank" rel="noopener" data-en="View the live website ↗">查看實際網站 ↗</a>
         <div class="case-results">
           <article class="case-result-card">
             <div class="case-result-label" data-en="Website Click Growth">網站點擊成長</div>
@@ -1358,16 +1384,18 @@ const PORTFOLIO_DATA = {
     "kicker": "Self-Initiated Project",
     "title": "🛰️ 自主專案：aerea51tw 多國語言互動網站與網頁遊戲",
     "title_en": "🛰️ Self-Initiated: Multilingual Interactive Site & Web Game for aerea51tw",
-    "summary": "這不是工作交辦的任務，是我為自己經營的 aespa 台灣後援會 aerea51tw 主動發起的專案：從概念發想、六國語言版本規劃、互動場景設計，到獨立開發完成一個沉浸式網站與一款 HTML 網頁遊戲——一人包辦企劃、設計、開發與社群溝通，並運用 Claude 等 AI 工具協作把構想落地成可上線的產品。這個專案證明的不是「我會用 AI 工具」，而是我能自己生出一個沒人交代的複雜專案，並獨立把技術、創意與社群三端一次做完。",
-    "summary_en": "Nobody assigned this — it's a project I initiated myself for aerea51tw, the aespa Taiwan fan community I run: from concept and 6-language planning to interactive scene design and solo development of an immersive site plus an HTML web game. I owned the planning, design, development, and community side myself, directing AI tools like Claude to turn the concept into a shippable product. What this shows isn't 'I can use AI tools' — it's that I can generate a complex, self-directed project nobody asked for, and carry the technical, creative, and community sides through end to end.",
+    "summary": "這不是工作交辦的任務，是我為自己經營的 aespa 台灣後援會 aerea51tw 主動發起的專案：從概念發想、六國語言版本規劃、互動場景設計，到獨立開發完成一個沉浸式網站與一款 HTML 網頁遊戲——一人包辦企劃、設計、開發與社群溝通，並運用 Claude 等 AI 工具協作把構想落地成可上線的產品。上線後累計已有超過 1,050 人次使用，觸及範圍也從中文圈擴展到泰國粉絲圈，證明六國語言的投入確實換來了實際的跨國觸及，不只是紙上的規劃。這個專案證明的不是「我會用 AI 工具」，而是我能自己生出一個沒人交代的複雜專案，並獨立把技術、創意與社群三端一次做完。",
+    "summary_en": "Nobody assigned this — it's a project I initiated myself for aerea51tw, the aespa Taiwan fan community I run: from concept and 6-language planning to interactive scene design and solo development of an immersive site plus an HTML web game. I owned the planning, design, development, and community side myself, directing AI tools like Claude to turn the concept into a shippable product. Since launch it has logged over 1,050 uses, with reach expanding beyond Chinese-speaking fans into the Thai fan community — proof the 6-language investment translated into real cross-border reach, not just a feature list on paper. What this shows isn't 'I can use AI tools' — it's that I can generate a complex, self-directed project nobody asked for, and carry the technical, creative, and community sides through end to end.",
     "facts": [
       "自主發起，非交辦任務——從零構思到上線全程獨立完成",
+      "上線後累計超過 1,050 人次使用，觸及範圍擴展到泰國粉絲圈",
       "六國語言版本規劃：繁中 / 簡中 / 英 / 韓 / 日 / 泰",
       "互動場景與機制設計：語言選單、倒數機制、彩蛋等",
       "同時運用 Claude 完成社群文案與 1 款 HTML 網頁遊戲"
     ],
     "facts_en": [
       "Self-initiated, not assigned — solo end-to-end from concept to launch",
+      "Over 1,050 uses since launch, with reach extending into the Thai fan community",
       "6-language build: Traditional Chinese / Simplified Chinese / English / Korean / Japanese / Thai",
       "Designed interactive scenes and mechanics: language selector, countdown, hidden details",
       "Also used Claude for social copy and 1 HTML web game"
