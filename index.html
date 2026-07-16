@@ -956,22 +956,109 @@ body{
   .mini-sticker{width:30px;height:30px;font-size:14px;top:-12px;right:-8px}
   .case-study-title{padding-left:32px}
 }
+/* ===== 2026-07: shutter intro, lang switch, hamburger, case covers, deck fix ===== */
+
+/* -- shutter intro -- */
+.shutter{position:fixed;inset:0;z-index:2000;pointer-events:none}
+.shutter-panel{position:absolute;top:0;bottom:0;width:50.5%;background:linear-gradient(145deg,#2A2520,#3C332D);animation:shutterOpen .85s cubic-bezier(.76,0,.24,1) .3s forwards}
+.shutter-panel.left{left:0;transform-origin:left}
+.shutter-panel.right{right:0;transform-origin:right}
+@keyframes shutterOpen{to{transform:scaleX(0)}}
+.shutter-mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--cream,#FFFDF8);font-size:12px;letter-spacing:.22em;font-weight:700;animation:shutterMarkFade .35s ease .45s forwards}
+.shutter-mark::after{content:'';display:block;margin:10px auto 0;width:34px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--ice-mid),var(--ora))}
+@keyframes shutterMarkFade{to{opacity:0}}
+@media (prefers-reduced-motion:reduce){.shutter{display:none}}
+
+/* -- switch-style language toggle -- */
+.nav-side{display:flex;align-items:center;gap:10px}
+.lang-switch{display:flex;gap:0;border:1.5px solid var(--ice-mid);background:#fff;border-radius:999px;padding:3px}
+.lang-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:.03em;color:var(--mid);padding:6px 13px;border-radius:999px;transition:.22s}
+.lang-switch button.active{background:var(--ice-dark);color:#fff}
+.lang-switch button:not(.active):hover{color:var(--ice-dark)}
+
+/* -- hamburger + mobile nav -- */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;padding:0 10px;transition:.2s}
+.hamburger span{display:block;width:100%;height:2px;border-radius:2px;background:var(--dark);transition:.25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:680px){
+  .nav-inner{flex-direction:row!important;align-items:center!important;justify-content:space-between}
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:64px;left:14px;right:14px;z-index:99;flex-direction:column;align-items:stretch;gap:4px;background:rgba(255,255,255,.97);border:1px solid var(--border);border-radius:22px;padding:12px;box-shadow:0 18px 40px rgba(42,37,32,.14);overflow-x:visible;width:auto;transform:translateY(-16px);opacity:0;pointer-events:none;transition:.28s}
+  .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-links a{padding:12px 16px;font-size:14px}
+}
+
+/* -- case flip covers -- */
+.case-flip-hint{font-size:12.5px;color:var(--mid);font-weight:700;margin-top:8px}
+.case-wrap{perspective:1400px;margin-bottom:26px}
+.case-wrap .case-study{display:none;margin-bottom:0}
+.case-wrap.revealed .case-cover{display:none}
+.case-wrap.revealed .case-study{display:block;animation:caseFlipIn .55s cubic-bezier(.3,1.2,.45,1);transform-origin:center top}
+@keyframes caseFlipIn{from{opacity:0;transform:rotateX(-38deg) translateY(-8px)}to{opacity:1;transform:rotateX(0) translateY(0)}}
+.case-cover{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;text-align:left;padding:26px 30px;border:2px solid var(--border);cursor:pointer;font-family:inherit;background:#fff;box-shadow:0 12px 28px rgba(42,37,32,.07);transition:transform .32s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease,border-color .3s ease;backface-visibility:hidden}
+.case-cover:hover{transform:translateY(-5px) rotateX(3deg);box-shadow:0 22px 44px rgba(42,37,32,.13)}
+.case-cover .cc-num{grid-column:1/-1;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+.case-cover .cc-statwrap{display:flex;flex-direction:column;gap:5px;min-width:130px}
+.case-cover .cc-stat{font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.case-cover .cc-unit{font-size:10.5px;font-weight:800;letter-spacing:.04em;color:var(--muted);line-height:1.4}
+.case-cover .cc-hook{font-size:21px;font-weight:800;line-height:1.4;color:var(--dark)}
+.case-cover .cc-cta{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);align-self:end;white-space:nowrap}
+.case-cover.cover-spark{border-radius:10px 34px 34px 34px;border-color:rgba(255,92,138,.45);background:linear-gradient(150deg,var(--spark-light) 0%,#fff 55%)}
+.case-cover.cover-spark .cc-stat{color:var(--spark-dark)}
+.case-cover.cover-spark:hover{border-color:var(--spark)}
+.case-cover.cover-leaf{border-radius:34px 10px 34px 34px;border-color:rgba(63,174,122,.45);background:linear-gradient(150deg,var(--leaf-light) 0%,#fff 55%)}
+.case-cover.cover-leaf .cc-stat{color:var(--leaf-dark)}
+.case-cover.cover-leaf:hover{border-color:var(--leaf)}
+.case-cover.cover-ora{border-radius:10px 34px 34px 34px;border-color:rgba(255,138,76,.45);background:linear-gradient(150deg,var(--ora-light) 0%,#fff 55%)}
+.case-cover.cover-ora .cc-stat{color:var(--ora)}
+.case-cover.cover-ora:hover{border-color:var(--ora)}
+@media(max-width:680px){
+  .case-cover{grid-template-columns:1fr;gap:10px;padding:22px}
+  .case-cover .cc-stat{font-size:42px}
+  .case-cover .cc-hook{font-size:18px}
+  .case-cover .cc-cta{align-self:start}
+}
+
+/* -- CTA mobile: keep the closing line on one line -- */
+@media(max-width:680px){
+  .c-big{font-size:clamp(19px,5.8vw,26px)!important;line-height:1.25}
+  .c-bridge{font-size:13px}
+}
+
+/* -- skill deck scroll fix: never trap vertical scroll, cleaner mobile -- */
+.ability-grid{touch-action:pan-x pan-y;scroll-snap-type:none}
+@media(max-width:680px){
+  .deck-controls{display:none}
+  .ability-grid{padding-bottom:8px}
+}
 </style>
 </head>
 <body>
+<div class="shutter" id="shutter" aria-hidden="true">
+  <div class="shutter-panel left"></div>
+  <div class="shutter-panel right"></div>
+  <div class="shutter-mark">NYX CHEN ✦ PORTFOLIO</div>
+</div>
 <div class="cursor-glow" id="glow"></div>
 
 <nav>
   <div class="nav-inner">
     <div class="nav-logo"><span class="nav-dot"></span> NYX CHEN · 陳伃萱</div>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#works" data-en="Works">作品</a>
       <a href="#portfolio" data-en="Categories">分類瀏覽</a>
       <a href="#about" data-en="About">關於</a>
       <a href="#skills" data-en="Skills">技能</a>
       <a href="assets/resume.pdf" target="_blank" rel="noopener" class="nav-resume" id="resume-link" data-en="Resume ↓" data-href-en="assets/resume-en.pdf" data-href-zh="assets/resume.pdf">履歷 ↓</a>
       <a href="mailto:dakotaylor1213@gmail.com" class="nav-cta" data-en="Contact +">聯絡我 ＋</a>
-      <button type="button" id="lang-toggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+    </div>
+    <div class="nav-side">
+      <div class="lang-switch" id="lang-switch" role="group" aria-label="Switch language">
+        <button type="button" data-lang="zh" class="active" onclick="applyLang('zh')">中</button><button type="button" data-lang="en" onclick="applyLang('en')">EN</button>
+      </div>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -991,7 +1078,7 @@ body{
   <div class="hero-board reveal-r delay-2">
     <div class="hero-mini leaf"><span class="mini-sticker">🌱</span><div class="mini-copy" data-en="<strong>Growth Mindset</strong><span>Always picking up new tools and workflows, turning every project into a chance to grow — getting sharper and broader with each one.</span>"><strong>成長力</strong><span>持續嘗試新工具、新做法，把每個專案都變成擴充能力的機會，越做越熟練也越廣。</span></div></div>
     <div class="hero-mini ora"><span class="mini-sticker">🎯</span><div class="mini-copy" data-en="<strong>Independent</strong><span>Five years working in high-autonomy, lean-team environments — able to set my own pace and independently complete website, visual, and content work.</span>"><strong>獨立</strong><span>五年來在高自主、少人力的環境中，能自行安排節奏，獨立完成網站、視覺與內容相關工作。</span></div></div>
-    <div class="hero-mini ice"><span class="mini-sticker">🤖</span><div class="mini-copy" data-en="<strong>AI</strong><span>Comfortable using AI tools like Claude to help with content production, website development, and workflow optimization — boosting output efficiency and the scope of what I can take on.</span>"><strong>AI</strong><span>熟悉運用 Claude 等 AI 工具協作處理內容產出、網站開發與流程優化，有效提升執行效率與涉略範圍。</span></div></div>
+    <div class="hero-mini ice"><span class="mini-sticker">🤖</span><div class="mini-copy" data-en="<strong>AI</strong><span>I don't just work with AI — my content gets cited by it. I direct tools like Claude to build sites and games, and every article I've optimized is cited by AI Overview.</span>"><strong>AI</strong><span>不只會用 AI 做事，也讓內容被 AI 引用——運用 Claude 等工具協作開發網站與遊戲，經手優化的文章全數被 AI Overview 引用。</span></div></div>
     <div class="hero-mini spark"><span class="mini-sticker">🔗</span><div class="mini-copy" data-en="<strong>Integration</strong><span>Skilled at turning scattered requirements into clear content and visual plans, staying steady under pressure while coordinating across teams.</span>"><strong>整合</strong><span>擅長把零散需求整理成清楚的內容與視覺方案，面對壓力時仍能穩定推進並串起跨部門合作。</span></div></div>
     <div class="hero-tags"><span class="pill" data-en="Self-Driven">獨立自主</span><span class="pill" data-en="Content Integration">內容整合</span><span class="pill" data-en="Reliable Execution">穩定執行</span><span class="pill" data-en="Creative Expression">創意表達</span></div>
   </div>
@@ -1004,10 +1091,10 @@ body{
       <div class="carddeck-copy">
         <div class="sec-eyebrow reveal">What I Do</div>
         <h2 class="carddeck-title reveal delay-1" data-en="Unfold my <strong>range of skills</strong>, one card at a time">像卡牌一樣展開我的 <strong>多元能力</strong></h2>
-        <p class="reveal delay-2" data-en="I've broken my abilities into a horizontally-scrollable set of cards, showing the skill set I can reliably deliver today. And '7+?' isn't just a number — it also represents that I'm still expanding what's possible.">我把能力拆成一張張可橫向瀏覽的卡牌，呈現目前已經能穩定發揮的技能組合；而「7+?」不只是數量，也代表我仍在持續擴充自己的可能性。</p>
+        <p class="reveal delay-2" data-en="I've broken my abilities into a horizontally-scrollable set of cards, showing the skill set I can reliably deliver today. And '8+?' isn't just a number — the 8th card was unlocked recently by shipping real projects, which is exactly the point: the deck keeps growing.">我把能力拆成一張張可橫向瀏覽的卡牌，呈現目前已經能穩定發揮的技能組合；而「8+?」不只是數量——第 8 張卡正是最近用實際上線的專案解鎖的，這也是重點：牌組還在持續變多。</p>
       </div>
       <div class="deck-hud reveal-r delay-2">
-        <div class="hud-card"><div class="hud-label">Deck Size</div><div class="hud-value ice">7+?</div><div class="hud-note" data-en="Currently 7+? ability cards are unlocked, representing my current skill set — with room to keep growing.">目前展開 7+? 張能力卡，代表現有技能組合，也保留未來持續進化的空間。</div></div>
+        <div class="hud-card"><div class="hud-label">Deck Size</div><div class="hud-value ice">8+?</div><div class="hud-note" data-en="8 ability cards unlocked — the newest one earned by shipping real projects. The deck keeps growing.">目前展開 8 張能力卡——最新一張是用實際上線的專案解鎖的，牌組還在持續擴充中。</div></div>
         <div class="hud-card"><div class="hud-label">Play Style</div><div class="hud-value ora">Multi-role</div><div class="hud-note" data-en="Highly autonomous and good at juggling multiple roles — steady in fast-paced environments, and always eager to learn more.">高自主、多工整合，能在節奏快的環境裡穩定推進，也樂於持續學習與擴充技能。</div></div>
       </div>
     </div>
@@ -1024,11 +1111,11 @@ body{
           <div class="card-inner">
             <div class="card-top"><div class="card-cost">01</div><div class="card-badge">Core Ability</div></div>
             <div class="card-frame">
-              <div class="card-art"><div class="card-symbol">📈</div><div class="card-spell"><strong data-en="Turning small updates into visible data signals.">把調整後的變化轉譯成可被看見的數據訊號。</strong><small>Insight</small></div></div>
-              <div class="card-title" data-en="Website Updates × Performance Tracking">網站更新 × 成效追蹤</div>
-              <div class="card-text" data-en="Responsible for site architecture, design, and deployment, plus ongoing content and layout upkeep. It's not just maintenance — it's turning updates into traffic signals that actually make sense.">負責網站架構、設計與上架，也持續整理內容與頁面呈現。不是單純維護，而是把更新成果轉成可以被理解的流量訊號。</div>
-              <div class="card-tags"><span data-en="Clicks +16.5%">點擊 +16.5%</span><span data-en="Impressions +10.1%">曝光 +10.1%</span><span>CTR 5.4%</span></div>
-              <div class="card-effect" data-en="<strong>Card effect:</strong> Comparing a one-month window, site clicks grew from 1,851 to 2,156, and impressions rose from about 36.0K to 39.6K."><strong>卡牌效果：</strong>以一個月區間比較，網站點擊由 1,851 成長至 2,156，曝光由約 3.60 萬提升至 3.96 萬。</div>
+              <div class="card-art"><div class="card-symbol">📈</div><div class="card-spell"><strong data-en="Optimizing content for the era when AI answers the searches.">把內容優化到連 AI 都願意引用的程度。</strong><small>Insight</small></div></div>
+              <div class="card-title" data-en="Website Updates × SEO / GEO">網站更新 × SEO / GEO</div>
+              <div class="card-text" data-en="Own site architecture, design, and deployment — plus GEO content optimization. Every article published so far reaches Google's top 2 and Bing's #1 within 2–3 days, and all are cited directly by AI Overview.">負責網站架構、設計與上架，加上 GEO 內容優化。目前上架的每篇文章都在 2–3 天內站上 Google 前 2 名、Bing 第 1，且全數被 AI Overview 直接引用。</div>
+              <div class="card-tags"><span data-en="Google Top 2">Google 前 2 名</span><span data-en="Bing all #1">Bing 全數第 1</span><span data-en="AIO cited 4/4">AIO 引用 4/4</span></div>
+              <div class="card-effect" data-en="<strong>Card effect:</strong> Jumps to the case study — see how the content claimed the AI-search entry point, verified live on Google and Bing."><strong>卡牌效果：</strong>跳到案例故事，看內容如何卡住 AI 搜尋的新流量入口——Google、Bing 上都能實際驗證。</div>
               <div class="card-action"><span data-en="Click to see the results">點擊展開成果卡</span><span class="arrow">→</span></div>
             </div>
             <div class="card-footerline"></div>
@@ -1124,13 +1211,28 @@ body{
             <div class="card-footerline"></div>
           </div>
         </article>
+
+        <article class="ability-card rot-none theme-ora" data-action="ai" onclick="openPortfolio('ai')" tabindex="0">
+          <div class="card-inner">
+            <div class="card-top"><div class="card-cost">08</div><div class="card-badge">New Unlock</div></div>
+            <div class="card-frame">
+              <div class="card-art"><div class="card-symbol">🛰️</div><div class="card-spell"><strong data-en="Shipped a 6-language interactive site and web games from scratch — directing AI as the co-builder.">從零打造六國語言互動網站與網頁遊戲——由我主導、AI 協作開發。</strong><small>Dev</small></div></div>
+              <div class="card-title" data-en="AI-Collaborative Development">AI 協作開發</div>
+              <div class="card-text" data-en="A newly unlocked card: self-initiated development of a 6-language interactive site (1,050+ uses) and web games — one now live on the company site as part of a traffic loop. I own the concept, structure, and quality control; AI accelerates the build.">最新解鎖的一張卡：自主開發六國語言互動網站（1,050+ 人次使用）與網頁遊戲，其中一款已上線公司網站、成為導流機制的一環。構想、架構與品質把關由我主導，AI 負責加速實作。</div>
+              <div class="card-tags"><span data-en="Web Development">網頁開發</span><span data-en="HTML Games">網頁遊戲</span><span data-en="Claude / ChatGPT">Claude / ChatGPT</span></div>
+              <div class="card-effect" data-en="<strong>Card effect:</strong> Opens the self-initiated project — see the site and games actually running."><strong>卡牌效果：</strong>開啟自主專案作品，直接看網站與遊戲的實際成品。</div>
+              <div class="card-action"><span data-en="Click to view the project">點擊查看自主專案</span><span class="arrow">→</span></div>
+            </div>
+            <div class="card-footerline"></div>
+          </div>
+        </article>
       </div>
 
       <div class="deck-controls" aria-label="技能卡牌瀏覽控制">
         <button class="deck-nav-btn" type="button" onclick="scrollSkillDeck(-1)" aria-label="往左瀏覽技能卡">←</button>
         <div class="deck-progress" aria-hidden="true"><span id="deck-progress-bar"></span></div>
         <button class="deck-nav-btn" type="button" onclick="scrollSkillDeck(1)" aria-label="往右瀏覽技能卡">→</button>
-        <div class="deck-help" data-en="<b>How to browse:</b> mouse wheel / trackpad swipe / drag the cards / or use the arrow buttons."><b>操作方式：</b>滑鼠滾輪 / 觸控板左右滑 / 按住拖曳卡牌 / 點箭頭都可以。</div>
+        <div class="deck-help" data-en="<b>How to browse:</b> trackpad side-swipe / drag the cards / or use the arrow buttons."><b>操作方式：</b>觸控板左右滑 / 按住拖曳卡牌 / 點箭頭都可以。</div>
       </div>
     </div>
   </section>
@@ -1151,7 +1253,7 @@ body{
           <button class="work-card cover-ice" onclick="openPortfolio('photo')"><div class="work-cover"><span class="cover-mark">📷</span></div><div class="work-info"><div class="work-meta"><span class="index">02</span><span class="chip ice">Photo</span></div><h3 class="work-title" data-en="Product / E-commerce Photography">商品 / 電商圖作品</h3><p class="work-desc" data-en="A collection of e-commerce product shots, visuals, and listing assets — click to enlarge.">集中呈現電商商品圖、產品視覺與上架素材，點圖可放大瀏覽。</p></div></button>
           <button class="work-card cover-ora" onclick="openPortfolio('design')"><div class="work-cover"><span class="cover-mark">🎨</span></div><div class="work-info"><div class="work-meta"><span class="index">03</span><span class="chip ora">Design</span></div><h3 class="work-title" data-en="Event Collateral / Merch Design">活動文宣 / 周邊設計</h3><p class="work-desc" data-en="A collection of promo graphics, merch design, and product mockups from the aespa fan-birthday café event.">整理 aespa 生咖活動的宣傳圖、周邊設計與商品模擬圖。</p></div></button>
           <button class="work-card cover-ice" onclick="openPortfolio('ai')"><div class="work-cover"><span class="cover-mark">🛰️</span></div><div class="work-info"><div class="work-meta"><span class="index">04</span><span class="chip ice">Self-Initiated</span></div><h3 class="work-title" data-en="Self-Initiated: Multilingual Interactive Site &amp; Web Game for aerea51tw">自主專案：aerea51tw 多國語言互動網站與網頁遊戲</h3><p class="work-desc" data-en="Nobody assigned this. I conceived, designed, and built a 6-language interactive site and an HTML web game end-to-end for a fan community I run, directing AI tools like Claude to ship it solo.">沒有人交辦這件事——我為自己經營的粉絲社群，從零構思、設計並獨立開發出一個六國語言的互動網站與一款網頁遊戲，並運用 Claude 等 AI 工具協作完成整個開發過程。</p></div></button>
-          <button class="work-card cover-ora" onclick="openPortfolio('gameflow')"><div class="work-cover"><span class="cover-mark">🎮</span></div><div class="work-info"><div class="work-meta"><span class="index">05</span><span class="chip ora">Team Project</span></div><h3 class="work-title" data-en="Website × Social: A Two-Way Traffic Loop">網站 × 社群：雙向導流機制</h3><p class="work-desc" data-en="A growth mechanic designed with a colleague — I built the web game, they planned the social contest — so the site and social channel drive traffic into each other.">與同事共同設計的成長機制——我負責開發網頁遊戲，同事負責社群端的抽獎企劃，讓網站與社群互相導流。</p></div></button>
+          <button class="work-card cover-ora" onclick="openPortfolio('gameflow')"><div class="work-cover"><span class="cover-mark">🎮</span></div><div class="work-info"><div class="work-meta"><span class="index">05</span><span class="chip ora">Team Project</span></div><h3 class="work-title" data-en="Website × Social: A Two-Way Traffic Loop">網站 × 社群：雙向導流機制</h3><p class="work-desc" data-en="A growth mechanic designed with a colleague — I built the web game, they planned the social contest. Now live: 24h interactions hit 814% of the usual, and we're iterating on the conversion flow.">與同事共同設計的成長機制——我開發網頁遊戲，同事負責社群抽獎企劃。已上線：24 小時互動達平常的 814%，轉換動線迭代中。</p></div></button>
         </div>
       </div>
     </div>
@@ -1184,7 +1286,7 @@ body{
         <div class="section-mini-head" data-en="Skills in Detail">能力展開</div>
         <div class="duties-grid">
           <article class="duty-card"><div class="duty-title" data-en="Website Architecture / Updates / Deployment">網站架構 / 更新 / 上架</div><div class="duty-desc" data-en="I own website edits and builds — architecture, design, and deployment — while tracking clicks, impressions, and the impact of content changes.">網站修改與建立由我負責，包含架構、設計與上架，也會搭配數據觀察回看點擊、曝光與內容調整後的變化。</div></article>
-          <article class="duty-card"><div class="duty-title" data-en="SEO / GEO Content Collaboration &amp; Optimization">SEO / GEO 內容協作與優化</div><div class="duty-desc" data-en="I take articles provided by the ad agency and use AI tools to edit copy, re-source images, and refine layout — and I'm responsible for quality-checking content and presentation before it goes live, improving readability and visibility through images, tables, and layout design.">承接廣告代理商提供的文章內容，結合 AI 工具進行文字修改、重新配圖與版面優化，並負責把關上線前的內容品質與呈現方式，透過圖片、表格與版面設計提升資訊可讀性與能見度。</div></article>
+          <article class="duty-card"><div class="duty-title" data-en="SEO / GEO Content Collaboration &amp; Optimization">SEO / GEO 內容協作與優化</div><div class="duty-desc" data-en="I take articles provided by the ad agency and use AI tools to edit copy, re-source images, and refine layout — and I'm responsible for quality-checking content and presentation before it goes live. Every article published so far reaches Google's top 2 and Bing's #1 within 2–3 days, and all are cited directly by AI Overview.">承接廣告代理商提供的文章內容，結合 AI 工具進行文字修改、重新配圖與版面優化，並負責把關上線前的內容品質與呈現方式。目前上架的文章全數在 2–3 天內站上 Google 前 2 名、Bing 第 1，且全數被 AI Overview 直接引用。</div></article>
           <article class="duty-card"><div class="duty-title" data-en="Photography / Catalogs / Visual Output">攝影 / 型錄 / 視覺輸出</div><div class="duty-desc" data-en="Handles product photography, retouching and cutouts, DSLR and gimbal shooting, plus catalogs, exhibition materials, social graphics, and event merch.">負責產品攝影、修圖去背、單眼與三軸穩定器拍攝，以及型錄、展覽文宣、社群圖與活動周邊等視覺輸出。</div></article>
           <article class="duty-card"><div class="duty-title" data-en="Events / E-commerce / Cross-Team Support">活動 / 電商 / 跨部門支援</div><div class="duty-desc" data-en="Supports e-commerce listing, shipping, customer service, and pricing estimates, and can tie event planning, social communication, venue setup, and cross-team coordination into an executable workflow.">支援電商上架、出貨、客服與價格估算，也能把活動企劃、社群溝通、場佈與跨部門合作串成可執行的流程。</div></article>
         </div>
@@ -1195,8 +1297,16 @@ body{
       <div class="about-subsection-head">
         <div class="sec-eyebrow" data-en="Case Studies &amp; Results">Case Studies &amp; Results</div>
         <h3 class="about-subsection-title" id="impact" data-en="From problem to measurable result">案例故事：從問題到可衡量的成果</h3>
+        <p class="case-flip-hint" data-en="Tap a card to flip it open and read the full story ↓">點擊卡牌翻開，看完整故事 ↓</p>
       </div>
 
+      <div class="case-wrap">
+      <button type="button" class="case-cover cover-spark" onclick="revealCase(this)">
+        <span class="cc-num">CASE 01</span>
+        <div class="cc-statwrap"><span class="cc-stat" data-en="NT$170K+">17萬+</span><span class="cc-unit" data-en="Event sales driven">活動帶動銷售額</span></div>
+        <span class="cc-hook" data-en="One person ran it. The venue publicly posted: &quot;genuinely impressed.&quot; What happened in those 3 days?">一個人主辦，卻讓店家公開發文「真心佩服」——那 3 天發生了什麼？</span>
+        <span class="cc-cta" data-en="Tap to flip →">點擊翻牌 →</span>
+      </button>
       <div class="case-study theme-spark">
         <div class="case-study-title" data-en="Case Study: aespa 5th Anniversary Café">案例故事：aespa 五周年生咖</div>
         <div class="case-flow">
@@ -1223,7 +1333,15 @@ body{
           </article>
         </div>
       </div>
+      </div>
 
+      <div class="case-wrap">
+      <button type="button" class="case-cover cover-leaf" onclick="revealCase(this)">
+        <span class="cc-num">CASE 02</span>
+        <div class="cc-statwrap"><span class="cc-stat">4/4</span><span class="cc-unit" data-en="Articles cited by AI Overview">文章被 AI Overview 引用</span></div>
+        <span class="cc-hook" data-en="Every article published so far ranks top 2 on Google, #1 on Bing — and all of them get cited by AI Overview.">目前上架的每一篇文章都站上 Google 前 2 名、Bing 第 1——而且全數被 AI Overview 引用。</span>
+        <span class="cc-cta" data-en="Tap to flip →">點擊翻牌 →</span>
+      </button>
       <div class="case-study theme-leaf">
         <div class="case-study-title" data-en="Case Study: Website SEO / GEO Optimization">案例故事：網站 SEO / GEO 優化</div>
         <div class="case-flow">
@@ -1231,26 +1349,34 @@ body{
           <div class="case-arrow">→</div>
           <article class="case-step" data-step="2"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="Keyword strategy was decided by the agency and management — not something I could control. So I focused on what I actually could: implementing AI-recommended improvements, cutting the site's LCP load time, rewriting article content to be more engaging, and continuously monitoring impression, click, and ranking trends via Google Search Console to keep iterating on the parts within my control.">關鍵字策略是廣告代理商與主管決定的範圍，不是我能左右的部分；我把力氣放在自己能實際掌控的地方——導入 AI 建議的優化項目、縮短網站 LCP 載入時間、把文章內容改寫得更生動有吸引力，並持續透過 Google Search Console 觀察曝光、點擊與排名的變化趨勢，讓自己能控制的部分不斷迭代優化。</div></article>
           <div class="case-arrow">→</div>
-          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="After recent optimization (comparing 4/1–4/30 to 5/17–6/17), site clicks recovered <strong>16.5%</strong> and impressions grew <strong>10.1%</strong> — an early positive signal. Since optimization just started, there isn't yet enough conversion/inquiry data, so the focus for now is on impression and click trends.">近期優化後(4/1–4/30 → 5/17–6/17 區間比較)，網站點擊回升 <strong>16.5%</strong>、曝光成長 <strong>10.1%</strong>，出現正向轉折訊號；由於優化才剛起步，尚未有足夠的轉換/諮詢數據，目前主要觀察曝光與點擊的變化趨勢。</div></article>
+          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Result">成果</div><div class="case-step-text" data-en="All 4 SEO/GEO articles published so far, verified by search: <strong>Google — 2 at rank #1, 2 at rank #2; Bing — all 4 at rank #1; and all 4 are cited directly by AI Overview</strong>, reaching top positions within 2–3 days of publishing. As search traffic shifts toward AI answers, the content is already holding the new entry point. Full click recovery is still in progress: a short-window comparison showed a +16.5% rebound signal, and I keep validating the trend through Google Search Console.">目前上架的 4 篇 SEO / GEO 文章，實際搜尋驗證：<strong>Google 搜尋 2 篇第 1、2 篇第 2；Bing 全數第 1；且 4 篇全數被 AI Overview 直接引用</strong>——上架 2–3 天內就站上排名。在搜尋流量正轉向 AI 答案的當下，內容已經先卡住新的流量入口。點擊的全面回升仍在進行中：短期區間比較曾出現 +16.5% 的回升訊號，我持續透過 Google Search Console 驗證趨勢。</div></article>
         </div>
-        <div class="case-insight" data-en="<strong>Thought one step further:</strong> most people close the file once the optimization ships. I turned data-watching into an ongoing habit — tracking impressions, clicks, and rankings through Google Search Console on a regular cycle, which is exactly how this recent upward signal got caught early instead of being missed."><strong>多想一步：</strong>多數人優化上線後就結案，我把數據觀察變成持續的習慣——定期透過 Google Search Console 追蹤曝光、點擊與排名的變化，這次的正向轉折訊號才沒有被錯過。</div>
+        <div class="case-insight" data-en="<strong>Thought one step further:</strong> clicks are a lagging metric. While search is being replaced by AI answers, I optimized our content into a format AI can read and wants to cite — claiming the new traffic entrance before the old one finishes shrinking. Data-watching stays an ongoing habit via Google Search Console, which is how these signals get caught early."><strong>多想一步：</strong>點擊是落後指標。當搜尋正在被 AI 答案取代，我提前把內容優化成 AI 讀得懂、願意引用的格式——在舊入口縮小之前，先卡住新的流量入口。數據觀察依然是持續的習慣，透過 Google Search Console 定期追蹤，這些訊號才不會被錯過。</div>
         <a class="case-site-link" href="https://www.dersheng.com.tw/zh-TW/" target="_blank" rel="noopener" data-en="View the live website ↗">查看實際網站 ↗</a>
         <div class="case-results">
           <article class="case-result-card">
-            <div class="case-result-label" data-en="Website Click Growth">網站點擊成長</div>
-            <div class="case-result-number">+16.5%</div>
-            <div class="case-result-detail" data-en="Comparing a one-month window, site clicks rose from <strong>1,851</strong> to <strong>2,156</strong> — a clear lift in organic clicks after the update.">以一個月區間比較，網站點擊數由 <strong>1,851</strong> 提升至 <strong>2,156</strong>，更新後帶動更明顯的自然點擊成長。</div>
-            <div class="case-result-help">4/1–4/30 → 5/17–6/17</div>
+            <div class="case-result-label" data-en="Search Rank (4 articles)">搜尋排名（4 篇文章）</div>
+            <div class="case-result-number">Top 2</div>
+            <div class="case-result-detail" data-en="On Google, <strong>2 articles rank #1 and 2 rank #2</strong> for their target keywords; on Bing, <strong>all 4 rank #1</strong> — reached within 2–3 days of publishing.">Google 搜尋 <strong>2 篇第 1、2 篇第 2</strong>；Bing <strong>全數第 1</strong>——上架 2–3 天內達成。</div>
+            <div class="case-result-help" data-en="Verifiable by searching right now">現在搜尋就能實際驗證</div>
           </article>
           <article class="case-result-card">
-            <div class="case-result-label" data-en="Website Impression Growth">網站曝光成長</div>
-            <div class="case-result-number">+10.1%</div>
-            <div class="case-result-detail" data-en="Impressions rose from about <strong>36.0K</strong> to <strong>39.6K</strong>; average CTR rose from <strong>5.2%</strong> to <strong>5.4%</strong> — content became easier to discover.">曝光由約 <strong>3.60 萬</strong> 提升至 <strong>3.96 萬</strong>；平均點閱率由 <strong>5.2%</strong> 提升至 <strong>5.4%</strong>，內容更容易被看見。</div>
-            <div class="case-result-help" data-en="Direct result of content &amp; layout adjustments">內容與版面調整後的直接變化</div>
+            <div class="case-result-label" data-en="AI Overview Citations">AI Overview 引用</div>
+            <div class="case-result-number">4/4</div>
+            <div class="case-result-detail" data-en="Every published article is <strong>cited directly by AI Overview</strong> — as search shifts to AI answers, the content already holds the new entry point.">上架文章<strong>全數被 AI Overview 直接引用</strong>——在搜尋轉向 AI 答案的當下，內容已先卡住新的流量入口。</div>
+            <div class="case-result-help" data-en="Where search traffic is heading">搜尋流量正在移動的方向</div>
           </article>
         </div>
       </div>
+      </div>
 
+      <div class="case-wrap">
+      <button type="button" class="case-cover cover-ora" onclick="revealCase(this)">
+        <span class="cc-num">CASE 03</span>
+        <div class="cc-statwrap"><span class="cc-stat">814%</span><span class="cc-unit" data-en="Interactions vs. usual, 24h">互動量 vs 平常（24 小時）</span></div>
+        <span class="cc-hook" data-en="Zero ad budget, one game — interactions hit 814% of the usual in 24 hours. But the story isn't over.">零廣告預算、一款遊戲——24 小時互動衝到平常的 814%。但故事還沒完。</span>
+        <span class="cc-cta" data-en="Tap to flip →">點擊翻牌 →</span>
+      </button>
       <div class="case-study theme-ora">
         <div class="case-study-title" data-en="Case Study: Website × Social Traffic Loop">案例故事：網站 × 社群雙向導流機制</div>
         <div class="case-flow">
@@ -1258,10 +1384,12 @@ body{
           <div class="case-arrow">→</div>
           <article class="case-step" data-step="2"><div class="case-step-label" data-en="Approach">做法</div><div class="case-step-text" data-en="A colleague and I first aligned on both goals — site dwell time and social reach — then designed a &quot;play the web game → screenshot and comment → win a prize&quot; flow together. I built the web game (art via ChatGPT, code and logic built with Claude), while they planned the social contest mechanic and posts.">我跟同事先對齊「網站要停留時間、社群要流量」這兩個目標，再一起設計出「玩網頁遊戲 → 截圖留言 → 抽獎」的動線。我負責網頁遊戲的開發（美術由 ChatGPT 生成，網頁與程式邏輯由我用 Claude 協作完成），同事負責社群端的抽獎機制規劃與貼文產出。</div></article>
           <div class="case-arrow">→</div>
-          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Status">現況</div><div class="case-step-text" data-en="The social post is launching soon. This is currently in execution — results will be tracked and added once live.">社群貼文即將發布，目前處於執行階段，成效會在上線後持續追蹤並更新。</div></article>
+          <article class="case-step case-step-result" data-step="3"><div class="case-step-label" data-en="Early Results">初步成效</div><div class="case-step-text" data-en="First 24 hours: reach hit <strong>512% of the usual</strong> and interactions <strong>814% of the usual</strong> — for a zero-ad-budget B2B manufacturer's page, that means the content itself is driving organic spread. Site clicks grew 8.3%, below target: the multi-step entry flow (play → screenshot → comment) is the bottleneck, and we're iterating — lowering the entry bar and closing the loop from the game back to the post.">貼文上線 24 小時，觸及達<strong>平常的 512%</strong>、互動達<strong>平常的 814%</strong>——對一個零廣告投放的 B2B 傳產粉專來說，這代表內容本身就在帶動自然擴散。網站點擊成長 8.3%，低於預期：「玩遊戲→截圖→回貼文留言」的多步驟參與門檻是轉換瓶頸，目前正與同事迭代——降低留言門檻、把遊戲端接回貼文的動線補起來。</div></article>
         </div>
         <div class="case-insight" data-en="<strong>Team collaboration:</strong> one of the few cases here I didn't carry alone — the site side and the social side each belonged to a different person. We aligned on the goal first, then each did our own part well, so the two channels drive traffic into each other instead of running separately."><strong>團隊協作：</strong>這是少數不是我一個人扛的案例——網站端跟社群端分別由兩個人負責，先對齊目標，再各自把專業做到位，讓兩個管道互相導流，而不是各做各的。</div>
-        <div class="case-status-badge" data-en="🚧 In progress — social post launching soon, results being tracked">🚧 執行中——社群貼文即將發布，成效持續追蹤中</div>
+        <div class="case-status-badge" data-en="🔄 Live &amp; iterating — reach exceeded expectations, conversion flow being optimized">🔄 上線迭代中——觸及超出預期，轉換動線優化中</div>
+        <a class="case-site-link" href="https://www.facebook.com/dersheng_caster/posts/pfbid0C7ADfVjgq7Ad8pG8aaht5un1auWhvGDvNstQivba2hPzr8TjXutr8xtrx7G9vsBvl" target="_blank" rel="noopener" data-en="View the live post ↗">查看實際貼文 ↗</a>
+      </div>
       </div>
     </div>
 
@@ -1440,17 +1568,26 @@ const PORTFOLIO_DATA = {
     "facts": [
       "跟同事共同設計，非個人專案——網站端由我負責，社群端由同事負責",
       "機制：玩網頁遊戲 → 截圖留言 → 抽獎",
-      "目標：網站停留時間與社群導流雙向成長",
-      "目前狀態：社群貼文即將發布，成效持續追蹤中"
+      "上線 24 小時：觸及達平常的 512%、互動達 814%（零廣告投放的 B2B 粉專）",
+      "網站點擊 +8.3%，低於預期——正在迭代參與門檻與回流動線"
     ],
     "facts_en": [
       "Co-designed with a colleague, not a solo project — I own the site side, they own the social side",
       "Mechanic: play the web game → screenshot + comment → win a prize",
-      "Goal: grow both site dwell time and social traffic",
-      "Current status: social post launching soon, results being tracked"
+      "First 24h: reach at 512% of usual, interactions at 814% (zero-ad-budget B2B page)",
+      "Site clicks +8.3%, below target — iterating on entry bar and return flow"
     ],
     "type": "video",
     "items": [
+      {
+        "title": "活動貼文（同事主導的社群端）",
+        "title_en": "Campaign Post (colleague-led social side)",
+        "desc": "實際上線的抽獎活動貼文，導流機制的社群端入口。",
+        "desc_en": "The live contest post — the social-side entry point of the traffic loop.",
+        "type": "link",
+        "url": "https://www.facebook.com/dersheng_caster/posts/pfbid0C7ADfVjgq7Ad8pG8aaht5un1auWhvGDvNstQivba2hPzr8TjXutr8xtrx7G9vsBvl",
+        "icon": "📣"
+      },
       {
         "title": "網頁遊戲（美術：ChatGPT／網頁與程式：Claude 協作）",
         "title_en": "Web Game (art via ChatGPT, code via Claude)",
@@ -1724,8 +1861,9 @@ function applyLang(lang){
     if(el.dataset.zhAlt === undefined) el.dataset.zhAlt = el.getAttribute('alt') || '';
     el.setAttribute('alt', lang === 'en' ? el.dataset.enAlt : el.dataset.zhAlt);
   });
-  const btn = document.getElementById('lang-toggle');
-  if(btn) btn.textContent = lang === 'en' ? '中文' : 'EN';
+  document.querySelectorAll('#lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
   const resumeLink = document.getElementById('resume-link');
   if(resumeLink) resumeLink.href = lang === 'en' ? resumeLink.dataset.hrefEn : resumeLink.dataset.hrefZh;
   const modal = document.getElementById('portfolio-modal');
@@ -1734,6 +1872,52 @@ function applyLang(lang){
   }
 }
 function toggleLang(){ applyLang(LANG === 'en' ? 'zh' : 'en'); }
+
+/* ---- case flip covers ---- */
+function revealCase(cover){
+  const wrap = cover.closest('.case-wrap');
+  if(!wrap) return;
+  cover.style.transition = 'transform .28s ease, opacity .28s ease';
+  cover.style.transform = 'rotateX(60deg)';
+  cover.style.opacity = '0';
+  setTimeout(() => wrap.classList.add('revealed'), 240);
+}
+window.revealCase = revealCase;
+
+/* ---- in-page anchors: scroll via JS (fixes mobile/preview environments
+   that treat hash navigation as opening a new URL) ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+/* ---- mobile hamburger nav ---- */
+(function(){
+  const burger = document.getElementById('hamburger');
+  const links = document.getElementById('nav-links');
+  if(!burger || !links) return;
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }));
+})();
+
+/* ---- shutter intro cleanup ---- */
+setTimeout(() => {
+  const s = document.getElementById('shutter');
+  if(s) s.style.display = 'none';
+}, 1500);
 
 function openPortfolio(key){
   const data = PORTFOLIO_DATA[key];
@@ -1885,10 +2069,11 @@ function initDeckScroller(){
   deck.addEventListener('wheel', e => {
     const canScroll = deck.scrollWidth > deck.clientWidth + 1;
     if(!canScroll) return;
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if(delta !== 0){
+    // Only capture horizontal-intent gestures (trackpad side-swipe).
+    // Vertical wheel passes through so the page never feels stuck.
+    if(Math.abs(e.deltaX) > Math.abs(e.deltaY)){
       e.preventDefault();
-      deck.scrollLeft += delta;
+      deck.scrollLeft += e.deltaX;
     }
   }, {passive:false});
 
